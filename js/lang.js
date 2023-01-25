@@ -76,10 +76,14 @@ const langArr = {
     en: "For me, development is both a job and a hobby, so even in my free time I do development.",
   },
   text_three: {
+    ru: "В 2020 году закончил Белорусский государственный университет транспорта в Гомеле.",
+    en: "In 2020, he graduated from the Belarusian State Transport University in Gomel.",
+  },
+  text_four: {
     ru: "Прошёл 10 месячный курс по фронтенд разработке в Яндекс.Практикум.",
     en: "Ready to do great projects with great people.",
   },
-  text_four: {
+  five: {
     ru: "Готов реализовать отличные проекты с замечательными людьми.",
     en: "Ready to do great projects with great people.",
   },
