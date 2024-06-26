@@ -134,3 +134,98 @@ function closeOnClick(e) {
   burger.classList.remove("active");
   body.classList.remove("noscroll");
 }
+const aboutContainer = document.querySelector(".about__container");
+const skillsContainer = document.querySelector(".skills__container");
+const titlePortfolio = document.querySelector(
+  ".main__paragraph_offset-portfolio"
+);
+
+const footerTitle = document.querySelector(".footer__title");
+const footerLinks = document.querySelector(".footer__links");
+
+const portfolioProject = [...document.querySelectorAll(".portfolio__project")];
+
+window.addEventListener("scroll", function () {
+  const header = document.querySelector(".header .header__container");
+  const scrollPosition = document.documentElement.scrollTop;
+  if (scrollPosition >= 1) {
+    header.style.borderBottom = "none";
+  } else {
+    header.style.borderBottom = "1px solid var(--color-old-silver)";
+  }
+  console.log(scrollPosition);
+  if (scrollPosition >= 830) {
+    aboutContainer.style.top = "0";
+  } else if (scrollPosition <= 960) {
+    aboutContainer.style.top = "530px";
+  }
+
+  if (scrollPosition >= 1500) {
+    skillsContainer.style.top = "0";
+  } else if (scrollPosition <= 1500) {
+    skillsContainer.style.top = "530px";
+  }
+
+  if (scrollPosition >= 2040) {
+    titlePortfolio.style.top = "0";
+  } else if (scrollPosition <= 2040) {
+    titlePortfolio.style.top = "2010px";
+  }
+
+  if (scrollPosition >= 2200) {
+    portfolioProject[0].style.top = "0";
+  } else if (scrollPosition <= 2200) {
+    portfolioProject[0].style.top = "2010px";
+  }
+
+  if (scrollPosition >= 2800) {
+    portfolioProject[1].style.top = "0";
+  } else if (scrollPosition <= 2800) {
+    portfolioProject[1].style.top = "2010px";
+  }
+
+  if (scrollPosition >= 3500) {
+    portfolioProject[2].style.top = "0";
+  } else if (scrollPosition <= 3500) {
+    portfolioProject[2].style.top = "2010px";
+  }
+
+  const widthPage = document.documentElement.offsetWidth;
+  if (widthPage <= 700) {
+    if (scrollPosition >= 3200) {
+      footerTitle.style.top = "0";
+    } else if (scrollPosition <= 3200) {
+      footerTitle.style.top = "300px";
+    }
+
+    if (scrollPosition >= 3600) {
+      footerLinks.style.top = "0";
+    } else if (scrollPosition <= 3600) {
+      footerLinks.style.top = "300px";
+    }
+  } else if (widthPage >= 700) {
+    if (scrollPosition >= 4000) {
+      footerTitle.style.top = "0";
+    } else if (scrollPosition <= 4000) {
+      footerTitle.style.top = "300px";
+    }
+
+    if (scrollPosition >= 4100) {
+      footerLinks.style.top = "0";
+    } else if (scrollPosition <= 4100) {
+      footerLinks.style.top = "300px";
+    }
+  }
+});
+
+const loader = document.querySelector(".container__loader");
+const homeBlock = document.querySelector(".home__block");
+const slider = document.querySelector(".slider");
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
+    homeBlock.style.left = "0";
+    slider.style.left = "0";
+  }, 1000);
+});

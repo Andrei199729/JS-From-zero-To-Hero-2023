@@ -2,6 +2,7 @@
 
 :root {
   --main-bg-color: #f6f6f6;
+  --main-bg-color-two: #ffffff;
   --color-black: #070707;
   --color-old-silver: #828282;
 }
@@ -9,6 +10,7 @@
 .page {
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 .main {
@@ -50,10 +52,20 @@
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  max-width: 100%;
+  width: 100%;
+  background-color: var(--main-bg-color-two);
+  z-index: 1;
+}
+
+.header__container {
   max-width: 940px;
+  width: 100%;
   margin: 0 auto;
-  padding: 30px 0 30px;
   border-bottom: 1px solid var(--color-old-silver);
+  padding: 30px 0 30px;
 }
 
 .menu {
@@ -85,15 +97,23 @@
   color: var(--color-black);
 }
 
+.nav__link.nav__link-active {
+  color: var(--color-black);
+}
+
 .home {
   margin: 40px auto 0;
   max-width: 940px;
+  overflow: hidden;
 }
 
 .home__block {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  position: relative;
+  left: -130%;
+  transition: all 0.5s linear;
 }
 
 .home__name {
@@ -147,6 +167,9 @@
   margin: 50px auto;
   max-width: 394px;
   overflow: hidden;
+  position: relative;
+  left: 130%;
+  transition: all 0.5s linear;
 }
 
 .slider-line {
@@ -157,22 +180,28 @@
 }
 
 .slider__btn-box {
-  margin: 30px auto 0;
-  max-width: 100px;
+  margin: 30px 0;
+  max-width: 100%;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 10px;
 }
 
 .slider__btn {
   display: inline-flex;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   border: none;
   padding: 0;
   color: transparent;
   background-color: transparent;
+  border: 2px solid rgb(154, 138, 138);
+  border-radius: 50%;
+  box-shadow: none;
+  transition: all 0.2s linear;
 }
 
 .slider__btn::before,
@@ -184,8 +213,9 @@
 }
 
 .slider__btn::before {
-  top: 8px;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 30px;
   height: 2px;
   background-color: var(--color-old-silver);
@@ -194,60 +224,45 @@
 
 .slider__btn::after {
   width: 10px;
-  height: 10px;
-  top: 2px;
+  height: 12px;
+  top: 47%;
 }
 
 .slider__btn-prev::after {
-  left: 0;
+  left: 14px;
   border-top: 3px solid var(--color-old-silver);
   border-left: 3px solid var(--color-old-silver);
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) translateY(-50%);
   transition: all 0.3s linear;
 }
 
 .slider__btn-next::after {
-  left: 18px;
+  left: 21px;
   border-top: 3px solid var(--color-old-silver);
   border-right: 3px solid var(--color-old-silver);
-  transform: rotate(45deg);
+  transform: rotate(45deg) translateY(-50%);
   transition: all 0.3s linear;
 }
 
-.slider__btn:hover::before {
-  background-color: var(--color-black);
-}
-
-.slider__btn-prev:hover::after {
-  border-top: 3px solid var(--color-black);
-  border-left: 3px solid var(--color-black);
-  left: -8px;
-}
-
-.slider__btn-next:hover::after {
-  border-top: 3px solid var(--color-black);
-  border-right: 3px solid var(--color-black);
-  left: 25px;
-}
-
-.slider__btn-prev:hover::before {
-  left: -7px;
-}
-
-.slider__btn-next:hover::before {
-  left: 7px;
+.slider__btn:hover {
+  box-shadow: 0 0 10px 0 var(--color-old-silver);
+  border: none;
 }
 
 .about {
   max-width: 100%;
   margin-top: 100px;
   background-color: var(--main-bg-color);
+  overflow: hidden;
 }
 
 .about__container {
   max-width: 500px;
   margin: 0 auto;
   padding: 120px 0 107px;
+  position: relative;
+  top: 530px;
+  transition: all 0.5s linear;
 }
 
 .about__box {
@@ -257,6 +272,13 @@
 .skills {
   max-width: 940px;
   margin: 90px auto 110px;
+  overflow: hidden;
+}
+
+.skills__container {
+  position: relative;
+  top: 530px;
+  transition: all 0.5s linear;
 }
 
 .skills__icon {
@@ -292,6 +314,7 @@
 .portfolio {
   max-width: 100%;
   background-color: var(--main-bg-color);
+  overflow: hidden;
 }
 
 .portfolio__container {
@@ -300,9 +323,18 @@
   margin: 0 auto;
 }
 
+.main__paragraph_offset-portfolio {
+  position: relative;
+  top: 2010px;
+  transition: all 0.5s linear;
+}
+
 .portfolio__project {
   max-width: 100%;
   padding-bottom: 100px;
+  position: relative;
+  top: 2010px;
+  transition: all 0.5s linear;
 }
 
 .portfolio__image {
@@ -322,7 +354,7 @@
   text-align: center;
   color: var(--color-black);
   opacity: 1;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.5s linear;
 }
 
 .portfolio__link:hover {
@@ -332,6 +364,13 @@
 .footer {
   margin: 115px auto 120px;
   max-width: 940px;
+  overflow: hidden;
+}
+
+.footer__title {
+  position: relative;
+  top: 300px;
+  transition: all 0.5s linear;
 }
 
 .footer__links {
@@ -340,6 +379,9 @@
   justify-content: space-between;
   margin-top: 110px;
   max-width: 100%;
+  position: relative;
+  top: 300px;
+  transition: all 0.5s linear;
 }
 
 .footer__svg {
@@ -352,6 +394,91 @@
 
 .footer__link svg:hover {
   fill: #828282;
+}
+
+.container__loader {
+  background-color: var(--main-bg-color-two);
+  position: fixed;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s linear;
+}
+
+.col {
+  float: left;
+  margin: 10px;
+}
+
+/* CLEARFIX */
+.cf {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+/* ALL LOADERS */
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* LOADER 1 */
+
+#loader-1:before,
+#loader-1:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 10px solid transparent;
+  border-top-color: #3498db;
+}
+
+#loader-1:before {
+  z-index: 100;
+  animation: spin 1s infinite;
+}
+
+#loader-1:after {
+  border: 10px solid #ccc;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @media screen and (max-width: 1100px) {
